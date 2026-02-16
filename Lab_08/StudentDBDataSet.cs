@@ -1,0 +1,3 @@
+﻿namespace Lab_08
+{
+}
