@@ -39,13 +39,6 @@
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             dtgsinhviên = new DataGridView();
-            MaSo = new DataGridViewTextBoxColumn();
-            HoTen = new DataGridViewTextBoxColumn();
-            NgaySinh = new DataGridViewTextBoxColumn();
-            GioiTinh = new DataGridViewTextBoxColumn();
-            DiaChi = new DataGridViewTextBoxColumn();
-            DienThoai = new DataGridViewTextBoxColumn();
-            MaKhoa = new DataGridViewTextBoxColumn();
             label1 = new Label();
             txtMSV = new TextBox();
             label2 = new Label();
@@ -66,6 +59,13 @@
             btnXoa = new Button();
             btnThoat = new Button();
             btnSua = new Button();
+            MaSo = new DataGridViewTextBoxColumn();
+            HoTen = new DataGridViewTextBoxColumn();
+            NgaySinh = new DataGridViewTextBoxColumn();
+            GioiTinh = new DataGridViewTextBoxColumn();
+            DiaChi = new DataGridViewTextBoxColumn();
+            DienThoai = new DataGridViewTextBoxColumn();
+            MaKhoa = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgsinhviên).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -103,83 +103,6 @@
             dtgsinhviên.TabIndex = 0;
             dtgsinhviên.CellClick += dtgsinhviên_CellClick;
             dtgsinhviên.CellFormatting += dtgsinhviên_CellFormatting;
-            // 
-            // MaSo
-            // 
-            MaSo.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            MaSo.DefaultCellStyle = dataGridViewCellStyle2;
-            MaSo.HeaderText = "Mã sinh viên";
-            MaSo.MinimumWidth = 6;
-            MaSo.Name = "MaSo";
-            MaSo.ReadOnly = true;
-            MaSo.Width = 120;
-            // 
-            // HoTen
-            // 
-            HoTen.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            HoTen.DefaultCellStyle = dataGridViewCellStyle3;
-            HoTen.HeaderText = "Họ tên";
-            HoTen.MinimumWidth = 6;
-            HoTen.Name = "HoTen";
-            HoTen.ReadOnly = true;
-            HoTen.Width = 83;
-            // 
-            // NgaySinh
-            // 
-            NgaySinh.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            NgaySinh.DefaultCellStyle = dataGridViewCellStyle4;
-            NgaySinh.HeaderText = "Ngày sinh";
-            NgaySinh.MinimumWidth = 6;
-            NgaySinh.Name = "NgaySinh";
-            NgaySinh.ReadOnly = true;
-            NgaySinh.Width = 103;
-            // 
-            // GioiTinh
-            // 
-            GioiTinh.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            GioiTinh.DefaultCellStyle = dataGridViewCellStyle5;
-            GioiTinh.HeaderText = "Giới tính";
-            GioiTinh.MinimumWidth = 6;
-            GioiTinh.Name = "GioiTinh";
-            GioiTinh.ReadOnly = true;
-            GioiTinh.Width = 94;
-            // 
-            // DiaChi
-            // 
-            DiaChi.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            DiaChi.DefaultCellStyle = dataGridViewCellStyle6;
-            DiaChi.HeaderText = "Địa chỉ";
-            DiaChi.MinimumWidth = 6;
-            DiaChi.Name = "DiaChi";
-            DiaChi.ReadOnly = true;
-            DiaChi.Width = 84;
-            // 
-            // DienThoai
-            // 
-            DienThoai.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            DienThoai.DefaultCellStyle = dataGridViewCellStyle7;
-            DienThoai.HeaderText = "Số điện thoại";
-            DienThoai.MinimumWidth = 6;
-            DienThoai.Name = "DienThoai";
-            DienThoai.ReadOnly = true;
-            DienThoai.Width = 126;
-            // 
-            // MaKhoa
-            // 
-            MaKhoa.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            MaKhoa.DefaultCellStyle = dataGridViewCellStyle8;
-            MaKhoa.HeaderText = "Mã Khoa";
-            MaKhoa.MinimumWidth = 6;
-            MaKhoa.Name = "MaKhoa";
-            MaKhoa.ReadOnly = true;
-            MaKhoa.Width = 97;
             // 
             // label1
             // 
@@ -362,6 +285,83 @@
             btnSua.UseVisualStyleBackColor = true;
             btnSua.Click += btnSua_Click;
             // 
+            // MaSo
+            // 
+            MaSo.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            MaSo.DefaultCellStyle = dataGridViewCellStyle2;
+            MaSo.HeaderText = "Mã sinh viên";
+            MaSo.MinimumWidth = 6;
+            MaSo.Name = "MaSo";
+            MaSo.ReadOnly = true;
+            MaSo.Width = 120;
+            // 
+            // HoTen
+            // 
+            HoTen.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            HoTen.DefaultCellStyle = dataGridViewCellStyle3;
+            HoTen.HeaderText = "Họ tên";
+            HoTen.MinimumWidth = 6;
+            HoTen.Name = "HoTen";
+            HoTen.ReadOnly = true;
+            HoTen.Width = 83;
+            // 
+            // NgaySinh
+            // 
+            NgaySinh.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            NgaySinh.DefaultCellStyle = dataGridViewCellStyle4;
+            NgaySinh.HeaderText = "Ngày sinh";
+            NgaySinh.MinimumWidth = 6;
+            NgaySinh.Name = "NgaySinh";
+            NgaySinh.ReadOnly = true;
+            NgaySinh.Width = 103;
+            // 
+            // GioiTinh
+            // 
+            GioiTinh.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            GioiTinh.DefaultCellStyle = dataGridViewCellStyle5;
+            GioiTinh.HeaderText = "Giới tính";
+            GioiTinh.MinimumWidth = 6;
+            GioiTinh.Name = "GioiTinh";
+            GioiTinh.ReadOnly = true;
+            GioiTinh.Width = 94;
+            // 
+            // DiaChi
+            // 
+            DiaChi.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DiaChi.DefaultCellStyle = dataGridViewCellStyle6;
+            DiaChi.HeaderText = "Địa chỉ";
+            DiaChi.MinimumWidth = 6;
+            DiaChi.Name = "DiaChi";
+            DiaChi.ReadOnly = true;
+            DiaChi.Width = 84;
+            // 
+            // DienThoai
+            // 
+            DienThoai.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DienThoai.DefaultCellStyle = dataGridViewCellStyle7;
+            DienThoai.HeaderText = "Số điện thoại";
+            DienThoai.MinimumWidth = 6;
+            DienThoai.Name = "DienThoai";
+            DienThoai.ReadOnly = true;
+            DienThoai.Width = 126;
+            // 
+            // MaKhoa
+            // 
+            MaKhoa.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            MaKhoa.DefaultCellStyle = dataGridViewCellStyle8;
+            MaKhoa.HeaderText = "Mã Khoa";
+            MaKhoa.MinimumWidth = 6;
+            MaKhoa.Name = "MaKhoa";
+            MaKhoa.ReadOnly = true;
+            MaKhoa.Width = 97;
+            // 
             // QLSV_Database
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -418,6 +418,7 @@
         private Button btnLuu;
         private Button btnXoa;
         private Button btnThoat;
+        private Button btnSua;
         private DataGridViewTextBoxColumn MaSo;
         private DataGridViewTextBoxColumn HoTen;
         private DataGridViewTextBoxColumn NgaySinh;
@@ -425,6 +426,5 @@
         private DataGridViewTextBoxColumn DiaChi;
         private DataGridViewTextBoxColumn DienThoai;
         private DataGridViewTextBoxColumn MaKhoa;
-        private Button btnSua;
     }
 }

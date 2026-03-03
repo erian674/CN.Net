@@ -7,8 +7,7 @@ namespace Lab_08
 {
     public partial class QLSV_Database : Form
     {
-        // 1. Khai báo chuỗi kết nối
-        string strConn = "Data Source=DESKTOP-QPEFGNO\\NHUNHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
+        string strConn = "Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
 
         SqlConnection conn;
         SqlDataAdapter da;
@@ -81,8 +80,8 @@ namespace Lab_08
                 DataGridViewRow row = dtgsinhviên.Rows[index];
 
                 // Chép dữ liệu từ Grid lên Textbox
-                txtMSV.Text = row.Cells[0].Value.ToString();      // Cột Mã
-                txtHoTen.Text = row.Cells[1].Value.ToString();    // Cột Tên
+                txtMSV.Text = row.Cells[0].Value.ToString();  
+                txtHoTen.Text = row.Cells[1].Value.ToString();
 
                 // Xử lý Ngày sinh (cần kiểm tra null)
                 if (row.Cells[2].Value != DBNull.Value)
@@ -95,8 +94,8 @@ namespace Lab_08
                 raNam.Checked = isNam;
                 raNu.Checked = !isNam;
 
-                txtDiaChi.Text = row.Cells[4].Value.ToString();   // Địa chỉ
-                txtSdt.Text = row.Cells[5].Value.ToString();      // SĐT
+                txtDiaChi.Text = row.Cells[4].Value.ToString();   
+                txtSdt.Text = row.Cells[5].Value.ToString();     
 
                 // Xử lý ComboBox Khoa
                 cbbMaKhoa.SelectedValue = row.Cells[6].Value.ToString();
@@ -146,7 +145,7 @@ namespace Lab_08
         {
             try
             {
-                // 1. Kiểm tra xem có thay đổi gì trong bảng không (Thêm/Sửa/Xóa)
+                // 1. Kiểm tra xem có thay đổi gì trong bảng không
                 DataTable changes = dtSinhVien.GetChanges();
 
                 if (changes != null)
@@ -201,7 +200,7 @@ namespace Lab_08
 
             if (kq == DialogResult.Yes)
             {
-                SqlConnection connection = new SqlConnection("Data Source=DESKTOP-QPEFGNO\\NHUNHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True");
+                SqlConnection connection = new SqlConnection("Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True");
 
                 try
                 {

@@ -22,5 +22,26 @@ namespace Lab_08
             f.MdiParent = this;
             f.Show();
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            FrmMonHoc f = new FrmMonHoc();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            FrmKhoa f = new FrmKhoa();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            FrmKetQua f = new FrmKetQua();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

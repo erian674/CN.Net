@@ -12,10 +12,9 @@ GO
 USE StudentDB;
 GO
 -- 2. Tạo bảng KHOA
--- Sửa Makhoa thành varchar(10) cho thống nhất
 CREATE TABLE KHOA (
     Makhoa varchar(10) PRIMARY KEY, 
-    Tenkhoa nvarchar(50) -- Dùng nvarchar để lưu tiếng Việt
+    Tenkhoa nvarchar(50)
 );
 GO
 -- 3. Tạo bảng Mon (Môn học)
@@ -25,7 +24,7 @@ CREATE TABLE Mon (
     SoTiet int
 );
 GO
--- 4. Tạo bảng SinhVien (QUAN TRỌNG NHẤT)
+-- 4. Tạo bảng SinhVien
 CREATE TABLE SinhVien (
     MaSo int PRIMARY KEY,          
     HoTen nvarchar(50),            
