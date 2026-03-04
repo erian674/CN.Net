@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Lab_08
 {
-    public partial class FrmMonHoc : Form
+    public partial class Mon : Form
     {
         string connectionString =
         "Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
-        public FrmMonHoc()
+        public Mon()
         {
             InitializeComponent();
         }

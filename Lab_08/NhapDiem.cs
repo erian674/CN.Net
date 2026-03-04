@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Lab_08
 {
-    public partial class FrmKetQua : Form
+    public partial class NhapDiem : Form
     {
         string connectionString =
         "Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
-        public FrmKetQua()
+        public NhapDiem()
         {
             InitializeComponent();
         }

@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Lab_08
 {
-    public partial class FrmKhoa : Form
+    public partial class Khoa : Form
     {
         string connectionString =
         "Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
-        public FrmKhoa()
+        public Khoa()
         {
             InitializeComponent();
         }
