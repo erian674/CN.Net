@@ -38,6 +38,7 @@ namespace Lab_08
                     dtgsinhviên.Columns[0].DataPropertyName = "MaSo";
                     dtgsinhviên.Columns[1].DataPropertyName = "HoTen";
                     dtgsinhviên.Columns[2].DataPropertyName = "NgaySinh";
+                    dtgsinhviên.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
                     dtgsinhviên.Columns[3].DataPropertyName = "GioiTinh";
                     dtgsinhviên.Columns[4].DataPropertyName = "DiaChi";
                     dtgsinhviên.Columns[5].DataPropertyName = "DienThoai";
@@ -115,11 +116,8 @@ namespace Lab_08
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@MaSo", txtMSV.Text);
                     cmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
-                    cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
-
-                    // --- ĐÃ SỬA DÒNG NÀY ---
+                    cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value.Date);
                     cmd.Parameters.AddWithValue("@GioiTinh", chkGioiTinh.Checked);
-
                     cmd.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                     cmd.Parameters.AddWithValue("@DienThoai", txtSdt.Text);
                     cmd.Parameters.AddWithValue("@Makhoa", cbbMaKhoa.SelectedValue);
@@ -237,11 +235,8 @@ namespace Lab_08
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@MaSo", txtMSV.Text);
                     cmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
-                    cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value);
-
-                    // --- ĐÃ SỬA DÒNG NÀY ---
+                    cmd.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value.Date);
                     cmd.Parameters.AddWithValue("@GioiTinh", chkGioiTinh.Checked);
-
                     cmd.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                     cmd.Parameters.AddWithValue("@DienThoai", txtSdt.Text);
                     cmd.Parameters.AddWithValue("@Makhoa", cbbMaKhoa.SelectedValue);
