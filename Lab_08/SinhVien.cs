@@ -7,11 +7,13 @@ namespace Lab_08
 {
     public partial class SinhVien : Form
     {
+        // Chuỗi kết nối đến SQL Server
         string strConn = "Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
-
+        // Các đối tượng để làm việc với SQL
         SqlConnection conn;
         SqlDataAdapter da;
         SqlDataAdapter daKhoa;
+        // DataTable để lưu dữ liệu từ SQL
         DataTable dtSinhVien = new DataTable();
         DataTable dtKhoa = new DataTable();
         BindingSource bs = new BindingSource();
@@ -25,8 +27,10 @@ namespace Lab_08
         {
             LoadData();
         }
+        // Phương thức để tải dữ liệu từ SQL và hiển thị lên Grid
         private void LoadData()
         {
+            // Đảm bảo kết nối đã được mở trước khi thực hiện các thao tác với SQL
             try
             {
                 // 1. Cấu hình cột cho Grid
@@ -59,7 +63,7 @@ namespace Lab_08
                 da = new SqlDataAdapter("SELECT * FROM SinhVien ORDER BY MaSo ASC", conn);
                 dtSinhVien.Clear();
                 da.Fill(dtSinhVien);
-
+                // 3. Gán dữ liệu cho BindingSource và Grid
                 bs.DataSource = dtSinhVien;
                 dtgsinhviên.DataSource = bs;
             }
@@ -70,8 +74,10 @@ namespace Lab_08
         }
         private void HienThiThongTin(int index)
         {
+            // Kiểm tra index hợp lệ
             try
             {
+                // Lấy dòng dữ liệu từ Grid dựa trên index
                 DataGridViewRow row = dtgsinhviên.Rows[index];
 
                 // Chép dữ liệu từ Grid lên Textbox
@@ -100,19 +106,22 @@ namespace Lab_08
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            // Bắt đầu quá trình thêm mới sinh viên
             try
             {
+                // Kiểm tra nếu Mã sinh viên trống thì không cho phép thêm
                 if (string.IsNullOrEmpty(txtMSV.Text))
                 {
                     MessageBox.Show("Vui lòng nhập Mã sinh viên!");
                     return;
                 }
-
+                // Kiểm tra nếu Mã sinh viên đã tồn tại thì không cho phép thêm
                 using (SqlConnection connection = new SqlConnection(strConn))
                 {
+                    // Mở kết nối để kiểm tra tồn tại
                     string query = @"INSERT INTO SinhVien (MaSo, HoTen, NgaySinh, GioiTinh, DiaChi, DienThoai, Makhoa) 
                              VALUES (@MaSo, @HoTen, @NgaySinh, @GioiTinh, @DiaChi, @DienThoai, @Makhoa)";
-
+                    // Sử dụng SqlCommand với tham số để tránh lỗi SQL Injection và đảm bảo dữ liệu được truyền đúng kiểu
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@MaSo", txtMSV.Text);
                     cmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
@@ -121,7 +130,7 @@ namespace Lab_08
                     cmd.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                     cmd.Parameters.AddWithValue("@DienThoai", txtSdt.Text);
                     cmd.Parameters.AddWithValue("@Makhoa", cbbMaKhoa.SelectedValue);
-
+                    // Mở kết nối và thực thi câu lệnh INSERT
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Thêm sinh viên thành công!");
@@ -140,8 +149,10 @@ namespace Lab_08
         }       
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            // Bắt đầu quá trình xóa sinh viên
             try
             {
+                // Kiểm tra nếu Mã sinh viên trống thì không cho phép xóa
                 if (string.IsNullOrEmpty(txtMSV.Text))
                 {
                     MessageBox.Show("Vui lòng chọn sinh viên cần xóa!");
@@ -156,9 +167,10 @@ namespace Lab_08
                     "Nếu xóa, TOÀN BỘ ĐIỂM THI của sinh viên này cũng sẽ bị xóa theo.\n\n" +
                     "Bạn có chắc chắn muốn xóa không?",
                     "Xác nhận xóa nguy hiểm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+                // Nếu người dùng chọn "Yes", tiến hành xóa sinh viên và điểm thi liên quan
                 if (kq == DialogResult.Yes)
                 {
+                    // Mở kết nối để thực hiện xóa
                     using (SqlConnection connection = new SqlConnection(strConn))
                     {
                         connection.Open();
@@ -218,20 +230,22 @@ namespace Lab_08
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            // Bắt đầu quá trình sửa thông tin sinh viên
             try
             {
+                // Kiểm tra nếu Mã sinh viên trống thì không cho phép sửa
                 if (string.IsNullOrEmpty(txtMSV.Text))
                 {
                     MessageBox.Show("Vui lòng chọn sinh viên cần sửa!");
                     return;
                 }
-
+                // Mở kết nối để thực hiện cập nhật
                 using (SqlConnection connection = new SqlConnection(strConn))
                 {
                     string query = @"UPDATE SinhVien SET HoTen = @HoTen, NgaySinh = @NgaySinh, 
                              GioiTinh = @GioiTinh, DiaChi = @DiaChi, DienThoai = @DienThoai, Makhoa = @Makhoa 
                              WHERE MaSo = @MaSo";
-
+                    // Sử dụng SqlCommand với tham số để tránh lỗi SQL Injection và đảm bảo dữ liệu được truyền đúng kiểu
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@MaSo", txtMSV.Text);
                     cmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
@@ -240,7 +254,7 @@ namespace Lab_08
                     cmd.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                     cmd.Parameters.AddWithValue("@DienThoai", txtSdt.Text);
                     cmd.Parameters.AddWithValue("@Makhoa", cbbMaKhoa.SelectedValue);
-
+                    // Mở kết nối và thực thi câu lệnh UPDATE
                     connection.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
 

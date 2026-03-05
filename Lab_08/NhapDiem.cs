@@ -7,6 +7,7 @@ namespace Lab_08
 {
     public partial class NhapDiem : Form
     {
+        // Cập nhật chuỗi kết nối với tên server và database của bạn
         string connectionString =
         "Data Source=DESKTOP-QPEFGNO\\NHU;Initial Catalog=StudentDB;Integrated Security=True;TrustServerCertificate=True";
         public NhapDiem()
@@ -20,6 +21,7 @@ namespace Lab_08
             LoadComboBoxMonHoc();
             LoadData();
         }
+        // Phương thức tải dữ liệu từ database và hiển thị lên ComboBox Sinh viên và DataGridView
         private void LoadComboBoxSinhVien()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -34,6 +36,7 @@ namespace Lab_08
                 cbbMaSo.ValueMember = "MaSo";
             }
         }
+        // Phương thức tải dữ liệu từ database và hiển thị lên ComboBox Môn học
         private void LoadComboBoxMonHoc()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -52,6 +55,7 @@ namespace Lab_08
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
+                // Truy vấn SQL để lấy dữ liệu kết quả học tập, kết hợp với tên sinh viên và tên môn học
                 string query = @"
                     SELECT kq.MaSo, sv.HoTen, kq.MaMH, mh.TenMH, kq.Diem
                     FROM KetQua kq
@@ -61,7 +65,7 @@ namespace Lab_08
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-
+                // Thiết lập DataGridView để hiển thị dữ liệu
                 dgvKetQua.AutoGenerateColumns = false;
                 dgvKetQua.DataSource = dt;
                 dgvKetQua.Columns[0].DataPropertyName = "MaSo";
@@ -77,6 +81,7 @@ namespace Lab_08
             try
             {
                 float diem;
+                // Kiểm tra xem điểm có phải là một số hợp lệ hay không
                 if (!float.TryParse(txtDiem.Text, out diem))
                 {
                     MessageBox.Show("Điểm phải là một số hợp lệ!");
@@ -109,6 +114,7 @@ namespace Lab_08
             try
             {
                 float diem;
+                // Kiểm tra xem điểm có phải là một số hợp lệ hay không
                 if (!float.TryParse(txtDiem.Text, out diem))
                 {
                     MessageBox.Show("Điểm phải là một số hợp lệ!");

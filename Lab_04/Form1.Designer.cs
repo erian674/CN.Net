@@ -30,70 +30,63 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            treeView1 = new TreeView();
-            imageicons = new ImageList(components);
             toolStrip1 = new ToolStrip();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
+            tsbt1 = new ToolStripButton();
+            tsbt2 = new ToolStripButton();
+            treeView1 = new TreeView();
+            imageIcons = new ImageList(components);
             toolStrip1.SuspendLayout();
             SuspendLayout();
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbt1, tsbt2 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(434, 27);
+            toolStrip1.TabIndex = 0;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbt1
+            // 
+            tsbt1.Image = (Image)resources.GetObject("tsbt1.Image");
+            tsbt1.ImageTransparentColor = Color.Magenta;
+            tsbt1.Name = "tsbt1";
+            tsbt1.Size = new Size(90, 24);
+            tsbt1.Text = "Mở rộng";
+            // 
+            // tsbt2
+            // 
+            tsbt2.Image = (Image)resources.GetObject("tsbt2.Image");
+            tsbt2.ImageTransparentColor = Color.Magenta;
+            tsbt2.Name = "tsbt2";
+            tsbt2.Size = new Size(87, 24);
+            tsbt2.Text = "Thu gọn";
             // 
             // treeView1
             // 
             treeView1.ImageIndex = 0;
-            treeView1.ImageList = imageicons;
-            treeView1.Location = new Point(12, 53);
+            treeView1.ImageList = imageIcons;
+            treeView1.Location = new Point(14, 48);
             treeView1.Name = "treeView1";
             treeView1.SelectedImageIndex = 0;
-            treeView1.Size = new Size(228, 437);
-            treeView1.TabIndex = 0;
+            treeView1.Size = new Size(187, 366);
+            treeView1.TabIndex = 1;
             // 
-            // imageicons
+            // imageIcons
             // 
-            imageicons.ColorDepth = ColorDepth.Depth32Bit;
-            imageicons.ImageStream = (ImageListStreamer)resources.GetObject("imageicons.ImageStream");
-            imageicons.TransparentColor = Color.Lime;
-            imageicons.Images.SetKeyName(0, "0.png");
-            imageicons.Images.SetKeyName(1, "1.png");
-            imageicons.Images.SetKeyName(2, "2.png");
-            imageicons.Images.SetKeyName(3, "4.png");
-            imageicons.Images.SetKeyName(4, "5.png");
-            imageicons.Images.SetKeyName(5, "6.png");
-            imageicons.Images.SetKeyName(6, "7.png");
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton2, toolStripButton1 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(580, 34);
-            toolStrip1.TabIndex = 1;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(110, 29);
-            toolStripButton2.Text = "Mở rộng";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(106, 29);
-            toolStripButton1.Text = "Thu gọn";
+            imageIcons.ColorDepth = ColorDepth.Depth32Bit;
+            imageIcons.ImageSize = new Size(16, 16);
+            imageIcons.TransparentColor = Color.Transparent;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(580, 629);
-            Controls.Add(toolStrip1);
+            ClientSize = new Size(434, 450);
             Controls.Add(treeView1);
+            Controls.Add(toolStrip1);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -105,11 +98,11 @@
 
         #endregion
 
-        private TreeView treeView1;
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton1;
-        private ImageList imageicons;
+        private ToolStripButton tsbt1;
+        private ToolStripButton tsbt2;
+        private TreeView treeView1;
+        private ImageList imageIcons;
     }
 
 }

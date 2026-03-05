@@ -3,29 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// Thực hành đóng gói dữ liệu bằng get/set và xây dựng lớp theo Lập trình hướng đối tượng
 namespace Lab01
 {
     internal class BT2_Student
     {
         class Student
         {
-            // Các thuộc tính private (giữ nguyên như bài 1)
+            //Khai báo các thuộc tính của sinh viên
             private int SID;
             private string TenSV;
             private string Khoa;
             private float DiemTB;
 
-            // Constructor mặc định
+            //Constructor mặc định
             public Student()
             {
                 SID = 1;
-                TenSV = "Nguyen Van Nam";
+                TenSV = "Nguyễn Văn Nam";
                 Khoa = "CNTT";
                 DiemTB = 7;
             }
-
-            // Constructor tham số
+            //Constructor có tham số
             public Student(int id, string ten, string kh, float dtb)
             {
                 SID = id;
@@ -33,8 +32,7 @@ namespace Lab01
                 Khoa = kh;
                 DiemTB = dtb;
             }
-
-            // Cho SID
+            //Các thuộc tính get/set
             public int GetSID()
             {
                 return SID;
@@ -43,8 +41,6 @@ namespace Lab01
             {
                 SID = id;
             }
-
-            // Cho TenSV
             public string GetTenSV()
             {
                 return TenSV;
@@ -53,8 +49,6 @@ namespace Lab01
             {
                 TenSV = ten;
             }
-
-            // Cho Khoa
             public string GetKhoa()
             {
                 return Khoa;
@@ -63,8 +57,6 @@ namespace Lab01
             {
                 Khoa = kh;
             }
-
-            // Cho DiemTB
             public float GetDiemTB()
             {
                 return DiemTB;
@@ -73,62 +65,63 @@ namespace Lab01
             {
                 DiemTB = diem;
             }
-
-            // --- CÁC PHƯƠNG THỨC CHỨC NĂNG ---
-
-            // Phương thức hiển thị (giữ nguyên)
-            public void Show()
+            //Phương thức hiển thị thông tin sinh viên
+            public void Show(int thuTu)
             {
+                Console.WriteLine("Thông tin sinh viên thứ {0}:", thuTu);
                 Console.WriteLine("MSSV: {0}", this.SID);
-                Console.WriteLine("Ten SV: {0}", this.TenSV);
+                Console.WriteLine("Họ tên: {0}", this.TenSV);
                 Console.WriteLine("Khoa: {0}", this.Khoa);
-                Console.WriteLine("Diem TB: {0}", this.DiemTB);
-                Console.WriteLine("-------------------");
+                Console.WriteLine("Điểm trung bình: {0}", this.DiemTB);
+                Console.WriteLine("--------------------------------------");
             }
+            //Phương thức nhập thông tin sinh viên
             public void Nhap1SV()
             {
-                Console.Write("Nhap MaSV: ");
+                Console.Write("Nhập mssv: ");
                 SID = int.Parse(Console.ReadLine());
-
-                Console.Write("Ho ten SV: ");
+                Console.Write("Nhập họ tên: ");
                 TenSV = Console.ReadLine();
-
-                Console.Write("Nhap khoa: ");
+                Console.Write("Nhập khoa: ");
                 Khoa = Console.ReadLine();
-
-                Console.Write("Nhap Diem TB: ");
+                Console.Write("Nhập điểm trung bình: ");
                 DiemTB = float.Parse(Console.ReadLine());
+                Console.WriteLine("--------------------------------------");
             }
         }
-        //class Tester
-        //{
-        //    public static void Main(string[] args)
-        //    {
-        //        BT1_Student[] DSSV;
-        //        int n;
-        //        Console.WriteLine("Nhap vao so luong SV:");
-        //        n = int.Parse(Console.ReadLine());
-        //        DSSV = new BT1_Student[n];
-        //        Console.WriteLine("\n === NHAP DS SINH VIEN ===");
-        //        for (int i = 0; i < n; i++)
-        //        {
-        //            DSSV[i] = new BT1_Student();
-        //            Console.Write("Nhap masv {0}:  ", i + 1);
-        //            DSSV[i].StudentID = int.Parse(Console.ReadLine());
-        //            Console.Write("Ho ten SV: ");
-        //            DSSV[i].Name = Console.ReadLine();
-        //            Console.Write("Nhap Khoa: ");
-        //            DSSV[i].Faculty = Console.ReadLine();
-        //            Console.Write("Nhap diem tb: ");
-        //            DSSV[i].Mark = float.Parse(Console.ReadLine());
-        //        }
-
-        //        Console.WriteLine("\n === XUAT DS SINH VIEN ====");
-        //        foreach (BT1_Student sv in DSSV)
-        //            sv.show();
-        //        Console.ReadLine();
-
-        //    }
-        //}
+        //Lớp Tester để kiểm tra chương trình
+        class Tester
+        {
+            //Phương thức Main để chạy chương trình
+            public static void Main(string[] args)
+            {
+                Console.OutputEncoding = Encoding.UTF8; // Hỗ trợ in tiếng Việt ra màn hình (Output)
+                Console.InputEncoding = Encoding.UTF8;
+                //Tạo mảng đối tượng sinh viên
+                Student[] DSSV;
+                int n;
+                Console.Write("Nhập vào số lượng sinh viên: ");
+                n = int.Parse(Console.ReadLine());
+                DSSV = new Student[n];
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("=== NHẬP DANH SÁCH SINH VIÊN ===");
+                Console.WriteLine("--------------------------------------");
+                //Nhập thông tin cho từng sinh viên
+                for (int i = 0; i < n; i++)
+                {
+                    Console.WriteLine($"-- Nhập thông tin sinh viên thứ {i + 1} --");
+                    DSSV[i] = new Student();
+                    DSSV[i].Nhap1SV();
+                }
+                //Xuất thông tin của tất cả sinh viên
+                Console.WriteLine("=== XUẤT DANH SÁCH SINH VIÊN ====");
+                Console.WriteLine("--------------------------------------");
+                for (int i = 0; i < DSSV.Length; i++)
+                {
+                    DSSV[i].Show(i + 1);
+                }
+                Console.ReadLine();
+            }
+        }
     }
 }
